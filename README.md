@@ -1008,7 +1008,7 @@ python -m pytest tests/
 
 ## 📦 Repository
 
-**GitHub:** [https://github.com/yourusername/ai-museum-curator](https://github.com/yourusername/ai-museum-curator)
+**GitHub:** [https://github.com/yourusername/ai-museum-curator](https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator)
 
 **Kaggle Notebook:** [https://www.kaggle.com/code/yourusername/ai-museum-curator](https://www.kaggle.com/code/yourusername/ai-museum-curator)
 
@@ -1019,12 +1019,12 @@ python -m pytest tests/
 If you use MuseVerse in your research or project, please cite:
 
 ```bibtex
-@software{museverse2024,
+@software{museverse2025,
   title = {MuseVerse: AI Museum Curator},
-  author = {Your Name},
-  year = {2024},
-  url = {https://github.com/yourusername/ai-museum-curator},
-  note = {Kaggle ADK Capstone Challenge Submission}
+  author = {Sujith Putta,
+  year = {2025},
+  url = {https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator},
+  note = {Kaggle Agents Intensive - Capstone Project Challenge Submission}
 }
 ```
 
@@ -1034,7 +1034,7 @@ If you use MuseVerse in your research or project, please cite:
 
 MIT License
 
-Copyright (c) 2024 [Your Name]
+Copyright (c) 2024 [Sujith Putta]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1068,8 +1068,8 @@ SOFTWARE.
 ## 📞 Contact
 
 For questions, feedback, or collaboration:
-- **Email:** your.email@example.com
-- **GitHub Issues:** [Report a bug or request a feature](https://github.com/yourusername/ai-museum-curator/issues)
+- **Email:** sujithputta02@gmail.com
+- **GitHub Issues:** [Report a bug or request a feature](https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator/issues)
 - **Kaggle:** [@yourusername](https://www.kaggle.com/yourusername)
 
 ---
