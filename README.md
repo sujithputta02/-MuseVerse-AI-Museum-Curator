@@ -8,7 +8,7 @@
 
 ## 📋 Overview
 
-**Track:** Open Innovation Track
+**Track:** Freestyle Track
 
 **Problem:** Creating museum exhibitions is expensive, time-consuming, and requires specialized expertise. Small museums, educators, and cultural institutions lack resources to create engaging exhibitions on diverse topics. Traditional curation takes months and costs thousands of dollars.
 
