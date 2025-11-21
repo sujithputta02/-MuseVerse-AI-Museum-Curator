@@ -6,7 +6,7 @@
 
 - **Python 3.10+** (Python 3.14 recommended)
 - **pip** package manager
-- **Google API Key** (provided in `.env` file)
+- **Google API Key** (get your own from Google AI Studio)
 
 ### Step 2: Install Dependencies
 
@@ -49,7 +49,7 @@ Testing imports...
 ✅ requests
 
 Testing API key...
-✅ API key configured: AIzaSyDz4XFIfT0k0fNd...
+✅ API key configured: AIza*********************
 
 Testing Gemini model...
 ✅ Model initialized: gemini-2.0-flash-exp
@@ -119,15 +119,25 @@ This project uses **Gemini 2.0 Flash Experimental** (`gemini-2.0-flash-exp`), Go
 
 ## Configuration
 
-The API key is already configured in `.env`:
-```
-GOOGLE_API_KEY=AIzaSyDz4XFIfT0k0fNdI9ZmiUdt0eK91YY2xlo
+### Get Your Google API Key
+
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy your API key
+
+### Configure the API Key
+
+Create a `.env` file in the project root:
+```bash
+GOOGLE_API_KEY=your_api_key_here
 ```
 
-To use your own API key:
-1. Get a free API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Edit `.env` file
-3. Replace with your key
+Or copy from the example:
+```bash
+cp .env.example .env
+# Then edit .env and add your API key
+```
 
 ## Troubleshooting
 
