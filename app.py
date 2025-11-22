@@ -589,18 +589,39 @@ def display_generated_image(image_data: dict, caption: str = "Generated Image"):
     if isinstance(image_data, dict):
         status = image_data.get('status', 'unknown')
         
-        if status == 'placeholder_generated':
+        if status == 'generated':
+            # Show Nano Banana generated image from base64
+            image_base64 = image_data.get('image_base64', '')
+            if image_base64:
+                import base64
+                from io import BytesIO
+                from PIL import Image
+                
+                # Decode base64 to image
+                image_bytes = base64.b64decode(image_base64)
+                image = Image.open(BytesIO(image_bytes))
+                
+                # Display with fixed width for consistency (smaller thumbnails)
+                st.image(image, caption=f"🎨 {caption} (Nano Banana)", width=300)
+                st.caption(f"✨ {image_data.get('note', 'AI-generated thumbnail')}")
+            
+            # Fallback to image_path if base64 not available
+            elif 'image_path' in image_data:
+                st.image(image_data['image_path'], caption=f"🎨 {caption} (Nano Banana)", use_container_width=True)
+                st.caption(f"✨ {image_data.get('note', 'AI-generated image')}")
+        
+        elif status == 'placeholder_generated':
             # Show placeholder image
             placeholder_url = image_data.get('placeholder_url', '')
             if placeholder_url:
-                st.image(placeholder_url, caption=f"🎨 {caption}", use_column_width=True)
+                st.image(placeholder_url, caption=f"🎨 {caption}", use_container_width=True)
             
             enhanced_desc = image_data.get('enhanced_description', '')
             if enhanced_desc:
                 with st.expander("📝 View AI Image Description"):
                     st.write(enhanced_desc)
             
-            st.caption("💡 Placeholder image shown. Connect to Imagen/DALL-E for actual AI-generated images")
+            st.caption("💡 Placeholder image shown")
         
         elif status == 'description_generated':
             # Show enhanced description only
@@ -611,23 +632,34 @@ def display_generated_image(image_data: dict, caption: str = "Generated Image"):
             if enhanced_desc:
                 with st.expander("View Image Description"):
                     st.write(enhanced_desc)
-            
-            st.caption("💡 Connect to Imagen or DALL-E API to generate actual images")
         
         elif status == 'error':
             st.warning(f"⚠️ Image generation error: {image_data.get('error', 'Unknown error')}")
         
         else:
             # If it's an actual image URL or path
-            if 'url' in image_data:
-                st.image(image_data['url'], caption=caption, use_column_width=True)
+            if 'image_base64' in image_data:
+                # Display base64 image
+                import base64
+                from io import BytesIO
+                from PIL import Image
+                
+                image_bytes = base64.b64decode(image_data['image_base64'])
+                image = Image.open(BytesIO(image_bytes))
+                st.image(image, caption=caption, use_container_width=True)
+            elif 'image_url' in image_data:
+                st.image(image_data['image_url'], caption=caption, use_container_width=True)
+            elif 'image_path' in image_data:
+                st.image(image_data['image_path'], caption=caption, use_container_width=True)
+            elif 'url' in image_data:
+                st.image(image_data['url'], caption=caption, use_container_width=True)
             elif 'path' in image_data:
-                st.image(image_data['path'], caption=caption, use_column_width=True)
+                st.image(image_data['path'], caption=caption, use_container_width=True)
             elif 'placeholder_url' in image_data:
-                st.image(image_data['placeholder_url'], caption=caption, use_column_width=True)
+                st.image(image_data['placeholder_url'], caption=caption, use_container_width=True)
     elif isinstance(image_data, str):
         # Direct URL or path
-        st.image(image_data, caption=caption, use_column_width=True)
+        st.image(image_data, caption=caption, use_container_width=True)
 
 def display_metrics(metrics: dict):
     """Display metrics in a beautiful layout."""

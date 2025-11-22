@@ -19,6 +19,10 @@ MAX_EXHIBITS_PER_ROOM = 4  # Optimized for better distribution
 MIN_QUALITY_SCORE = 0.70  # Slightly lowered for more flexibility
 MAX_REFINEMENT_LOOPS = 3  # Increased refinement attempts
 
+# Performance Mode
+FAST_MODE = False  # Disable fast mode - use all features
+SKIP_OPTIONAL_AGENTS = False  # Run all 14 agents
+
 # Storage Configuration
 DATABASE_PATH = "data/exhibitions.db"
 CACHE_DIR = "data/cache"

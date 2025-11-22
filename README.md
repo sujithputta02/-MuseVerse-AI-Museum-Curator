@@ -12,7 +12,7 @@
 
 **Problem:** Creating museum exhibitions is expensive, time-consuming, and requires specialized expertise. Small museums, educators, and cultural institutions lack resources to create engaging exhibitions on diverse topics. Traditional curation takes months and costs thousands of dollars.
 
-**Solution:** MuseVerse uses 14 specialized AI agents working in parallel and sequential workflows to automatically generate museum-quality exhibitions complete with curated exhibits, thematic rooms, historical timelines, interactive elements, accessibility features, and AI-generated visual content.
+**Solution:** MuseVerse uses 14 specialized AI agents working in parallel and sequential workflows to automatically generate museum-quality exhibitions complete with curated exhibits, thematic rooms, historical timelines, interactive elements, accessibility features, and AI-generated images using Nano Banana (Gemini 2.5 Flash Image model) with optimized compression and base64 storage.
 
 **Value:** Reduces exhibition creation from months to minutes, costs from thousands to pennies, and makes cultural education accessible to everyone worldwide.
 
@@ -177,7 +177,7 @@ A complete museum exhibition with:
                          ↓
               ┌──────────────────────┐
               │ Image Generator      │ (12) Sequential
-              │ Agent                │ AI-generated images
+              │ Agent (Nano Banana)  │ Compressed thumbnails
               └──────────┬───────────┘
                          ↓
               ┌──────────────────────┐
@@ -247,7 +247,7 @@ JSONL Logs → Structured Events → Metrics Dashboard
 11. **InteractiveGuideAgent** - Generates quizzes, challenges, discussion prompts
 12. **MultimediaCuratorAgent** - Curates 3D models, AR/VR, video, audio
 13. **AccessibilityAgent** - Ensures inclusive design (visual, auditory, cognitive, physical)
-14. **ImageGeneratorAgent** - AI-generated exhibition posters, room visuals, artifact images
+14. **ImageGeneratorAgent** - Uses Nano Banana (Gemini 2.5 Flash Image) to generate compressed thumbnails (400x300px, JPEG quality 70%, ~30KB each, stored as base64)
 
 #### Agent Execution Patterns
 
@@ -285,6 +285,31 @@ JSONL Logs → Structured Events → Metrics Dashboard
 5. **KnowledgeGraphGenerator** - Visual concept mapping (NetworkX)
 6. **AIDocent** - Conversational Q&A guide
 7. **Safe3DViz** - 3D visualizations (Plotly)
+
+### 2.5 Image Generation with Nano Banana
+
+**Model:** `gemini-2.5-flash-image` (Nano Banana)
+
+**Process:**
+1. Generate image using Nano Banana model
+2. Resize to 400x300px thumbnails
+3. Compress as JPEG (quality 70%)
+4. Convert to base64 string
+5. Store in exhibition JSON (no files)
+
+**Optimization:**
+- Original size: ~500KB-2MB
+- Compressed size: ~20-50KB
+- Reduction: **90-95% smaller**
+- Storage: Base64 in database/JSON
+- Display: 300px width thumbnails
+
+**Benefits:**
+- Zero file storage footprint
+- Portable (embedded in JSON)
+- Fast loading
+- Database-friendly
+- Easy export/backup
 
 #### Tool Integration
 ```python
@@ -388,7 +413,7 @@ for attempt in range(max_retries):
 ### Core Technologies
 - **ADK Version**: Google ADK 0.1.0+
 - **Language**: Python 3.10+
-- **LLM Model**: Google Gemini 2.5 Flash (Latest stable model)
+- **LLM Model**: Google Gemini 2.5 Flash (text) + Nano Banana (images)
 - **Framework**: Streamlit 1.39.0 for web interface
 
 ### Key Libraries
@@ -398,6 +423,7 @@ for attempt in range(max_retries):
 - `matplotlib>=3.9.0` - Visualization
 - `networkx>=3.4.0` - Knowledge graph generation
 - `plotly>=5.18.0` - Interactive 3D visualizations
+- `Pillow>=10.0.0` - Image processing and compression
 - `requests>=2.32.0` - HTTP requests
 - `python-dotenv>=1.0.0` - Environment management
 
@@ -438,7 +464,7 @@ REQUEST_DELAY = 1.0  # Rate limiting
 - ✅ **AI Docent** - Conversational Q&A guide for exhibitions
 - ✅ **Accessibility** - Visual, auditory, cognitive, physical accommodations
 - ✅ **Multimedia Curation** - 3D models, AR/VR, video, audio recommendations
-- ✅ **Image Generation** - AI-generated posters, room visuals, artifact images
+- ✅ **Image Generation** - Nano Banana (Gemini 2.5 Flash Image) generates optimized thumbnails (400x300px, ~30KB each, base64 storage)
 - ✅ **Virtual Tours** - Multi-language audio guides with room transitions
 
 ### Quality Assurance
