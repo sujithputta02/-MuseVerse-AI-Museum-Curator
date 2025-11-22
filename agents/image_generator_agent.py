@@ -160,7 +160,7 @@ Lighting: Dramatic spotlighting with soft shadows, museum gallery lighting."""
                         
                         compression_ratio = (1 - len(compressed_data) / original_size) * 100
                         self.logger.logger.info(
-                            f"Image compressed: {original_size} → {len(compressed_data)} bytes "
+                            f"Image compressed: {original_size} -> {len(compressed_data)} bytes "
                             f"({compression_ratio:.1f}% reduction), base64: {len(image_base64)} chars"
                         )
                         
