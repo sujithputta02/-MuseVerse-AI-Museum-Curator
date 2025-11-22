@@ -1,10 +1,11 @@
-"""Logging utilities with JSONL support."""
+"""Logging utilities with JSONL support and performance optimizations."""
 import json
 import logging
 import os
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict
+from functools import lru_cache
 
 class JSONLLogger:
     """Logger that writes structured logs in JSONL format."""
@@ -34,17 +35,20 @@ class JSONLLogger:
         self.logger.addHandler(file_handler)
     
     def log_event(self, event_type: str, data: Dict[str, Any]):
-        """Log an event in JSONL format."""
+        """Log an event in JSONL format with buffering for better performance."""
         log_entry = {
             "timestamp": datetime.now().isoformat(),
             "event_type": event_type,
             "data": data
         }
         
-        with open(self.log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(log_entry) + "\n")
+        # Use buffered writing for better I/O performance
+        with open(self.log_file, "a", encoding="utf-8", buffering=8192) as f:
+            f.write(json.dumps(log_entry, separators=(',', ':')) + "\n")
         
-        self.logger.info(f"{event_type}: {json.dumps(data, indent=2)}")
+        # Only log to console if not in production mode
+        if os.getenv('LOG_LEVEL', 'INFO') != 'ERROR':
+            self.logger.info(f"{event_type}: {json.dumps(data, indent=2)}")
     
     def log_agent_start(self, agent_name: str, input_data: Any):
         """Log agent execution start."""
