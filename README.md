@@ -1047,7 +1047,7 @@ If you use MuseVerse in your research or project, please cite:
 ```bibtex
 @software{museverse2025,
   title = {MuseVerse: AI Museum Curator},
-  author = {Sujith Putta,
+  author = {Sujith Putta},
   year = {2025},
   url = {https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator},
   note = {Kaggle Agents Intensive - Capstone Project Challenge Submission}
@@ -1060,7 +1060,7 @@ If you use MuseVerse in your research or project, please cite:
 
 MIT License
 
-Copyright (c) 2024 [Sujith Putta]
+Copyright (c) 2025 [Sujith Putta]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
