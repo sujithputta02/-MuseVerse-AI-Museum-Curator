@@ -27,7 +27,7 @@
 
 ---
 
-## � Quick Nwavigation
+## � Quick Navigation
 
 - **[🚀 Quick Start](QUICK_START.md)** - Get running in 5 minutes
 - **[🎯 Project Highlights](PROJECT_HIGHLIGHTS.md)** - Key features and achievements
