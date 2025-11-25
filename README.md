@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="images/MuseVerse.png" alt="MuseVerse Logo" width="400"/>
+</div>
+
 # MuseVerse: AI Museum Curator
 
 ## Transform Any Topic into an Immersive Museum Exhibition
