@@ -31,7 +31,19 @@
 
 ---
 
-## � Quick Navigation
+## 🔗 Project Links
+
+[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo%20Video-red?logo=youtube)](https://youtu.be/zcqfnoe5RRU?si=1zetPrKZkp0XqsVi)
+[![Kaggle Submission](https://img.shields.io/badge/Kaggle-Submission-20BEFF?logo=kaggle)](https://kaggle.com/competitions/agents-intensive-capstone-project/writeups/new-writeup-1763316677904)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator)
+
+- **📹 [Watch Demo Video](https://youtu.be/zcqfnoe5RRU?si=1zetPrKZkp0XqsVi)** - 12 min complete walkthrough
+- **📝 [Kaggle Submission](https://kaggle.com/competitions/agents-intensive-capstone-project/writeups/new-writeup-1763316677904)** - Competition entry
+- **💻 [GitHub Repository](https://github.com/sujithputta02/-MuseVerse-AI-Museum-Curator)** - Full source code
+
+---
+
+## 📚 Quick Navigation
 
 - **[🚀 Quick Start](QUICK_START.md)** - Get running in 5 minutes
 - **[🎯 Project Highlights](PROJECT_HIGHLIGHTS.md)** - Key features and achievements
